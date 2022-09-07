@@ -1,30 +1,27 @@
 package com.devsuperior.dsmeta.model;
 
-import javax.persistence.*;
 import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_sales")
 public class Sale {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String selerName;
+    private String sellerName;
     private Integer visited;
     private Integer deals;
     private Double amount;
     private LocalDate date;
 
     public Sale() {
-    }
-
-    public Sale(Long id, String selerName, Integer visited, Integer deals, Double amount, LocalDate date) {
-        this.id = id;
-        this.selerName = selerName;
-        this.visited = visited;
-        this.deals = deals;
-        this.amount = amount;
-        this.date = date;
     }
 
     public Long getId() {
@@ -35,12 +32,12 @@ public class Sale {
         this.id = id;
     }
 
-    public String getSelerName() {
-        return selerName;
+    public String getSellerName() {
+        return sellerName;
     }
 
-    public void setSelerName(String selerName) {
-        this.selerName = selerName;
+    public void setSellerName(String sellerName) {
+        this.sellerName = sellerName;
     }
 
     public Integer getVisited() {
@@ -73,17 +70,5 @@ public class Sale {
 
     public void setDate(LocalDate date) {
         this.date = date;
-    }
-
-    @Override
-    public String toString() {
-        return "Sale{" +
-                "id=" + id +
-                ", selerName='" + selerName + '\'' +
-                ", visited=" + visited +
-                ", deals=" + deals +
-                ", amount=" + amount +
-                ", date=" + date +
-                '}';
     }
 }

@@ -20,7 +20,7 @@ public class SaleService {
     public Page<Sale> findSales(String minDate, String maxDate, Pageable pageable){
 //        Pega a data atual com o fuso horário do sistema
         LocalDate today = LocalDate.ofInstant(Instant.now(), ZoneId.systemDefault());
-        
+
 //        Usa condição ternária: o que vem depois do "?" é se a condição for verdadeira
 //        O que vem depois do ":" é se a condição for falsa
         LocalDate min = minDate.equals("") ? today.minusDays(365) : LocalDate.parse(minDate);
