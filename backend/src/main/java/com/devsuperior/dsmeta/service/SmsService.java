@@ -14,22 +14,16 @@ import com.twilio.type.PhoneNumber;
 @Service
 public class SmsService {
 
-    @Value("${twilio.sid}")
-    private String twilioSid;
-
-    @Value("${twilio.key}")
-    private String twilioKey;
-
-    @Value("${twilio.phone.from}")
-    private String twilioPhoneFrom;
-
-    @Value("${twilio.phone.to}")
-    private String twilioPhoneTo;
+    public static final String twilioSid = System.getenv("TWILIO_SID");
+    public static final String twilioKey = System.getenv("TWILIO_KEY");
+    public static final String twilioPhoneFrom = System.getenv("TWILIO_PHONE_FROM");
+    public static final String twilioPhoneTo = System.getenv("TWILIO_PHONE_TO");
 
     @Autowired
     private SaleRepository saleRepository;
 
     public void sendSms(Long saleId) {
+
 
         Sale sale = saleRepository.findById(saleId).get();
 
