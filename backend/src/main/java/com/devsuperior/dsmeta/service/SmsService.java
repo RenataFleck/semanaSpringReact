@@ -36,15 +36,15 @@ public class SmsService {
 //        Twilio.setUsername(twilioUserame);
 //        Twilio.setPassword(twilioPassword);
 //
-//        Twilio.init(twilioUserame, twilioPassword, twilioSid);
+        Twilio.init(twilioSid, twilioKey);
 
         System.out.println(msg);
-//
-//        PhoneNumber to = new PhoneNumber(twilioPhoneTo);
-//        PhoneNumber from = new PhoneNumber(twilioPhoneFrom);
-//
-//        Message message = Message.creator(to, from, msg).create();
-//
-//        System.out.println(message.getSid());
+
+        PhoneNumber to = new PhoneNumber(twilioPhoneTo);
+        PhoneNumber from = new PhoneNumber(twilioPhoneFrom);
+
+        Message message = Message.creator(to, from, msg).create();
+
+        System.out.println(message.getSid());
     }
 }
