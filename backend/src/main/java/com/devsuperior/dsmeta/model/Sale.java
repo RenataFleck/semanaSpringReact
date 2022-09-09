@@ -1,5 +1,8 @@
 package com.devsuperior.dsmeta.model;
 
+import jdk.jfr.DataAmount;
+import lombok.Data;
+
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
@@ -8,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Data
 @Entity
 @Table(name = "tb_sales")
 public class Sale {

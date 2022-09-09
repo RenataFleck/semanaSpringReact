@@ -3,7 +3,6 @@ package com.devsuperior.dsmeta.service;
 import com.devsuperior.dsmeta.model.Sale;
 import com.devsuperior.dsmeta.repository.SaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 
@@ -18,6 +17,8 @@ public class SmsService {
     public static final String twilioKey = System.getenv("TWILIO_KEY");
     public static final String twilioPhoneFrom = System.getenv("TWILIO_PHONE_FROM");
     public static final String twilioPhoneTo = System.getenv("TWILIO_PHONE_TO");
+    public static final String twilioUserame = System.getenv("TWILIO_USERNAME");
+    public static final String twilioPassword = System.getenv("TWILIO_PASSWORD");
 
     @Autowired
     private SaleRepository saleRepository;
@@ -32,13 +33,18 @@ public class SmsService {
         String msg = "O vendedor " + sale.getSellerName() + " foi destaque em " + date
                 + " com um total de R$ " + String.format("%.2f", sale.getAmount());
 
-        Twilio.init(twilioSid, twilioKey);
+//        Twilio.setUsername(twilioUserame);
+//        Twilio.setPassword(twilioPassword);
+//
+//        Twilio.init(twilioUserame, twilioPassword, twilioSid);
 
-        PhoneNumber to = new PhoneNumber(twilioPhoneTo);
-        PhoneNumber from = new PhoneNumber(twilioPhoneFrom);
-
-        Message message = Message.creator(to, from, msg).create();
-
-        System.out.println(message.getSid());
+        System.out.println(msg);
+//
+//        PhoneNumber to = new PhoneNumber(twilioPhoneTo);
+//        PhoneNumber from = new PhoneNumber(twilioPhoneFrom);
+//
+//        Message message = Message.creator(to, from, msg).create();
+//
+//        System.out.println(message.getSid());
     }
 }
